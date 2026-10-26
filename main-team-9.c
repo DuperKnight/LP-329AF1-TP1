@@ -2,16 +2,18 @@
 #include "functions-team-9.h"
 
 int main () {
-    int k=1, j;
+    int i=1, k;
+    int vetor[12];
 
-    while (k <= 12) {
-        printf("Insira o número %d: ", k);
-        scanf("%d", &j);
+    while (i <= 12) {
+        printf("Insira o número %d: ", i);
+        scanf("%d", &k);
 
-        if (j > 26 || j <2) {
+        if (k > 26 || k <2) {
             printf("O número precisa ser entre 2 e 26.\n");
         } else {
-            k += 1;
+            vetor[i-1] = k;
+            i += 1;
         }
     }
 
