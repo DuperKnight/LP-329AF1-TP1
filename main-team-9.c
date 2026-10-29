@@ -17,5 +17,12 @@ int main () {
         }
     }
 
+    int *n_vetor = ordenar(vetor);
+
+    for (i = 0; i <= 11; i++) {
+        printf("%d ", n_vetor[i]);
+    }
+    printf("\n");
+
     return 0;
 }

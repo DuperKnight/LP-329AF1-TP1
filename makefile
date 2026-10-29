@@ -12,4 +12,5 @@ main.exe : main-team-9.o functions-team-9.o
 
 clean :
 	 rm *.o
+	 rm *.exe
 	 @echo "Ficheiros removidos."
