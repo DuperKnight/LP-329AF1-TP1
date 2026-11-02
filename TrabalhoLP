@@ -102,10 +102,29 @@ int main ()
             scanf("%i", &Novo[i]); 
             }while(Novo[i] < 2 || Novo[i] > 26);
         }
+        int comb[12];
+        for (i = 0; i < 6; i++)
+        {
+            comb[i] = Nr[i];
+            comb[i + 6] = Novo[i + 6];
+        }
+        for (i = 0; i < 12; i++)
+        {
+            printf("%i ", Novo[i]);
+        }
+        printf ("\n");
         }
         else if (func == 8)
         {
             //Função 8
+            for (i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (Nr[i] % j != 0)
+                }
+            }
+
         }
         else if (func == 9)
         {
