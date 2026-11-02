@@ -92,6 +92,16 @@ int main ()
         else if (func == 7)
         {
             //Função 7
+            int Nr[12];
+        printf("Insira 12 números de 2 a 26 incluindo: \n");
+        //Pede números de 2 a 26 ao utilizador e continua a pedir até um valor válido ser inserido
+        for (i = 0; i < 12; i++)
+        {
+            do
+            {
+            scanf("%i", &Nr[i]); 
+            }while(Nr[i] < 2 || Nr[i] > 26);
+        }
         }
         else if (func == 8)
         {
