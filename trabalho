@@ -1,0 +1,223 @@
+#include <stdio.h>
+#include <stdbool.h> 
+
+void opção_1 (int original[12]);
+
+int main ()
+{ 
+    //variável dos loops
+    int i; 
+    //Vetor onde vamos guardar os números
+   int Nr[12];
+   printf("Insira 12 números de 2 a 26 incluindo: \n");
+   //Pede números de 2 a 26 ao utilizador e continua a pedir até um valor válido ser inserido
+   for (i = 0; i < 12; i++)
+   {
+    do
+    {
+       scanf("%i", &Nr[i]); 
+    }while(Nr[i] < 2 || Nr[i] > 26);
+   }
+   //Vamos criar o menu
+   bool estado = true;
+   int func;
+   //O programa vai correr enquanto o valor do estado for verdadeiro
+   do
+   {
+    printf("Digita o número da funcionlaidade que desejas utilizar\n\n");
+    printf("0. Sair do programa\n");
+    printf("1. Devolução do vetor ordenado por ordem crescente dos seus valores simétricos\n");
+    printf("2. Cálculo da soma de todos os elementos no vetor\n");
+    printf("3. Cálculo do coseno (cos) da segunda metade dos elementos no vetor\n");
+    printf("4. Construção de uma matriz 12 por 12, em que cada linha é composta pelo vetor lido (primeira linha) e por permutações dos seus valores\n");
+    printf("5. Identificação do valor mais próximo de 25\n");
+    printf("6. Devolução dos valores do vetor que são divisíveis por três\n");
+       
+        do
+        {
+            scanf("%i", &func);
+        }while (func < 0 || func > 12);
+        
+        if (func == 0)
+        {
+            //Função Sair
+            estado = false;
+            printf ("Status exit\n");
+            return 0;
+        }
+        if (func == 1)
+        {
+            //Função 1
+            opção_1(Nr);
+        }
+        else if (func == 2)
+        {
+            //Função 2
+            int sum = 0;
+        for (i = 0; i < 12; i++)
+         {
+        sum += Nr[i];
+         }
+        printf("Soma dos números inseridos: %d\n", sum);
+        }
+        else if (func == 3)
+        {
+            //Função 3
+         double *v_coseno;
+        for (i = 12-1; i >= 12/2; i--) 
+        {
+        v_coseno[12-1 - i] = Nr[i];
+        }
+
+        double *coseno = cosenos(v_coseno, 12);
+        printf("Coseno dos valores da segunda metade do vetor: ");
+        for (i = 0; i <= 12/2 - 1; i++) 
+        {
+        printf("%f ", coseno[i]);
+        }
+        printf("\n");
+        }
+        else if (func == 4)
+        {
+            //Função 4
+        }
+        else if (func == 5)
+        {
+            //Função 5
+        }
+        else if (func == 6)
+        {
+            //Função 6
+        }
+        else if (func == 7)
+        {
+            //Função 7
+            int Novo[12];
+        printf("Insira 12 números de 2 a 26 incluindo: \n");
+        //Pede números de 2 a 26 ao utilizador e continua a pedir até um valor válido ser inserido
+        for (i = 0; i < 12; i++)
+        {
+            do
+            {
+            scanf("%i", &Novo[i]); 
+            }while(Novo[i] < 2 || Novo[i] > 26);
+        }
+        int comb[12];
+        for (i = 0; i < 6; i++)
+        {
+            comb[i] = Nr[i];
+            comb[i + 6] = Novo[i + 6];
+        }
+        for (i = 0; i < 12; i++)
+        {
+            printf("%i ", Novo[i]);
+        }
+        printf ("\n");
+        }
+        else if (func == 8)
+        {
+            //Função 8
+            //Para sabermos se algum número num intervalo (por exemplo de 2 a 26) é primo só precisamos de testar com números de 2 a raiz de 26
+            int primo = 0;
+            int igual = 0;
+            for (i = 0; i < 12; i++)
+            {
+                for (int j = 2; j <= 5; j++)
+                {
+                    if (Nr[i] != j)
+                    {
+                        igual = 1;
+                        if (Nr[i] % j != 0)
+                        { 
+                          primo = primo + 1;
+                        }
+                    }
+                }
+            }
+            for (i = 0; i < 12; i++)
+            {
+                if (igual == 0)
+                {
+                    if (primo == 5)
+                    {
+                        printf( "%i", Nr[i]);
+                    }
+                }
+                else
+                {
+                    if (primo == 4)
+                    {
+                        printf("%i", Nr[i]);
+                    }
+                }
+            }
+
+        }
+        else if (func == 9)
+        {
+            //Função 9
+            int Novo[12];
+            printf("Insira 12 números de 2 a 26 incluindo: \n");
+            //Pede números de 2 a 26 ao utilizador e continua a pedir até um valor válido ser inserido
+            for (i = 0; i < 12; i++)
+            {
+                do
+                {
+                scanf("%i", &Novo[i]); 
+                }while(Novo[i] < 2 || Novo[i] > 26);
+            }
+            int matriz[12][12];
+            for (i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    matriz[i][j] = Nr[i] * Novo[j];
+                    printf("%i", matriz[i][j]);
+                }
+                printf("\n");
+            }
+        }
+        else if (func == 10)
+        {
+            //Função 10
+        }
+        else if (func == 11)
+        {
+            //Função 11
+        }
+        else if (func == 12)
+        {
+            //Função 12
+        }
+   }while (estado == true);
+   
+}
+
+void opção_1 (int original[12])
+{   
+    int simétrico[12];
+    for (int i = 0; i < 12; i++)
+    {
+        simétrico[i] = -1 * original[i];
+    }
+    // Ordenar o vetor simétrico por ordem crescente
+    for (int i = 0; i < 12 - 1; i++)
+    {
+        for (int j = 0; j < 12 - i - 1; j++)
+        {
+            if (simétrico[j] > simétrico[j + 1])
+            {
+                int aux = simétrico[j];
+                simétrico[j] = simétrico[j + 1];
+                simétrico[j + 1] = aux;
+            }
+        }
+    }
+    printf("Vetor simétrico ordenado: ");
+    for (int k = 0; k < 12; k++)
+    {
+        printf("%i, ", simétrico[k]);
+    }
+    printf("\n");
+
+}
