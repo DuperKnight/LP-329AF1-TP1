@@ -117,11 +117,38 @@ int main ()
         else if (func == 8)
         {
             //Função 8
+            //Para sabermos se algum número num intervalo (por exemplo de 2 a 26) é primo só precisamos de testar com números de 2 a raiz de 26
+            int primo = 0;
+            int igual = 0;
             for (i = 0; i < 12; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 2; j <= 5; j++)
                 {
-                    if (Nr[i] % j != 0)
+                    if (Nr[i] != j)
+                    {
+                        igual = 1;
+                        if (Nr[i] % j != 0)
+                        { 
+                          primo = primo + 1;
+                        }
+                    }
+                }
+            }
+            for (i = 0; i < 12; i++)
+            {
+                if (igual == 0)
+                {
+                    if (primo == 4)
+                    {
+                        printf( "%i", Nr[i]);
+                    }
+                }
+                else
+                {
+                    if (primo == 5)
+                    {
+                        printf("%i", Nr[i]);
+                    }
                 }
             }
 
