@@ -2,15 +2,23 @@
 #include "functions-team-9.h"
 
 int main () {
-    int i=1, k, tamanho_vetor=12;
-    int vetor[tamanho_vetor];
+    int i=1,
+        k,
+        tamanho_vetor=12;
 
+    int vetor[tamanho_vetor],
+        matriz[tamanho_vetor][tamanho_vetor];
+
+
+
+
+        
     // 1. Entrada de 12 números inteiros entre 2 e 26.
     while (i <= tamanho_vetor) {
         printf("Insira o número %d: ", i);
         scanf("%d", &k);
 
-        if (k > 26 || k <2) {
+        if (k > 26 || k < 2) {
             printf("O número precisa estar entre 2 e 26.\n");
         } else {
             vetor[i-1] = k;
@@ -36,8 +44,8 @@ int main () {
 
     // 4. Coseno dos valores da segunda metade do vetor
     double *v_coseno;
-    for (i = tamanho_vetor-1; i >= tamanho_vetor/2; i -= 1) {
-        v_coseno[tamanho_vetor-i-1] = n_vetor[i];
+    for (i = tamanho_vetor-1; i >= tamanho_vetor/2; i--) {
+        v_coseno[tamanho_vetor-1 - i] = n_vetor[i];
     }
 
     double *coseno = cosenos(v_coseno, tamanho_vetor);
