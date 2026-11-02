@@ -2,8 +2,6 @@
 #include <math.h>
 #include "functions-team-9.h"
 
-// teste
-
 int *ordenar (int lista[], int tamanho) {
     int i, k;
     for (i = 0; i <= tamanho - 1; i += 1) {
