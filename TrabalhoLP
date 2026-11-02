@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <stdbool.h> 
+
+void opção_1 (int original[12]);
+
+int main ()
+{ 
+    //Vetor onde vamos guardar os números
+   int Nr[12];
+   printf("Insira 12 números de 2 a 26 incluindo: \n");
+   //Pede números de 2 a 26 ao utilizador e continua a pedir até um valor válido ser inserido
+   for (int i = 0; i < 12; i++)
+   {
+    do
+    {
+       scanf("%i", &Nr[i]); 
+    }while(Nr[i] < 2 || Nr[i] > 26);
+   }
+   //Vamos criar o menu
+   bool estado = true;
+   int func;
+   //O programa vai correr enquanto o valor do estado for verdadeiro
+   do
+   {
+    printf("Digita o número da funcionlaidade que desejas utilizar\n\n");
+    printf("0. Sair do programa\n");
+    printf("1. Devolução do vetor ordenado por ordem crescente dos seus valores simétricos\n");
+    printf("2. Cálculo da soma de todos os elementos no vetor\n");
+    printf("3. Cálculo do coseno (cos) da segunda metade dos elementos no vetor\n");
+    printf("4. Construção de uma matriz 12 por 12, em que cada linha é composta pelo vetor lido (primeira linha) e por permutações dos seus valores\n");
+    printf("5. Identificação do valor mais próximo de 25\n");
+    printf("6. Devolução dos valores do vetor que são divisíveis por três\n");
+       
+        do
+        {
+            scanf("%i", &func);
+        }while (func < 0 || func > 6);
+        
+        if (func == 0)
+        {
+            estado = false;
+            printf ("Status exit\n");
+            return 0;
+        }
+
+        if (func == 1)
+        {
+            opção_1(Nr);
+        }
+        else if (func == 2)
+        {
+            //Função 2
+        }
+        else if (func == 3)
+        {
+            //Função 3
+        }
+        else if (func == 4)
+        {
+            //Função 4
+        }
+        else if (func == 5)
+        {
+            //Função 5
+        }
+        else if (func == 6)
+        {
+            //Função 6
+        }
+
+   }while (estado == true);
+   
+}
+
+void opção_1 (int original[12])
+{   
+    int simétrico[12];
+    for (int i = 0; i < 12; i++)
+    {
+        simétrico[i] = -1 * original[i];
+    }
+    // Ordenar o vetor simétrico por ordem crescente
+    for (int i = 0; i < 12 - 1; i++)
+    {
+        for (int j = 0; j < 12 - i - 1; j++)
+        {
+            if (simétrico[j] > simétrico[j + 1])
+            {
+                int aux = simétrico[j];
+                simétrico[j] = simétrico[j + 1];
+                simétrico[j + 1] = aux;
+            }
+        }
+    }
+    printf("Vetor simétrico ordenado: ");
+    for (int k = 0; k < 12; k++)
+    {
+        printf("%i, ", simétrico[k]);
+    }
+    printf("\n");
+
+}
