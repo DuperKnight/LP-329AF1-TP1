@@ -36,7 +36,7 @@ int main ()
         do
         {
             scanf("%i", &func);
-        }while (func < 0 || func > 6);
+        }while (func < 0 || func > 12);
         
         if (func == 0)
         {
@@ -89,7 +89,30 @@ int main ()
         {
             //Função 6
         }
-
+        else if (func == 7)
+        {
+            //Função 7
+        }
+        else if (func == 8)
+        {
+            //Função 8
+        }
+        else if (func == 9)
+        {
+            //Função 9
+        }
+        else if (func == 10)
+        {
+            //Função 10
+        }
+        else if (func == 11)
+        {
+            //Função 11
+        }
+        else if (func == 12)
+        {
+            //Função 12
+        }
    }while (estado == true);
    
 }
