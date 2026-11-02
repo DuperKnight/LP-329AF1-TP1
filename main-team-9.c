@@ -2,58 +2,39 @@
 #include "functions-team-9.h"
 
 int main () {
-    int i=1,
-        k,
-        tamanho_vetor=12;
+    // Declarar variável de escolha
+    int func;
 
-    int vetor[tamanho_vetor],
-        matriz[tamanho_vetor][tamanho_vetor];
+    // Menu
+    printf("Digita o número da funcionlaidade que desejas utilizar\n\n");
+    printf("0. Sair do programa\n");
+    printf("1. Devolução do vetor ordenado por ordem crescente dos seus valores simétricos\n");
+    printf("2. Cálculo da soma de todos os elementos no vetor\n");
+    printf("3. Cálculo do coseno (cos) da segunda metade dos elementos no vetor\n");
+    printf("4. Construção de uma matriz 12 por 12, em que cada linha é composta pelo vetor lido (primeira linha) e por permutações dos seus valores\n");
+    printf("5. Identificação do valor mais próximo de 25\n");
+    printf("6. Devolução dos valores do vetor que são divisíveis por três\n");
 
+    do {
+        scanf("%i", &func);
+    } while (func < 0 || func > 6);
 
-
-
+    switch (func) {
+        case 0:
+            return 0;
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+    }
         
-    // 1. Entrada de 12 números inteiros entre 2 e 26.
-    while (i <= tamanho_vetor) {
-        printf("Insira o número %d: ", i);
-        scanf("%d", &k);
-
-        if (k > 26 || k < 2) {
-            printf("O número precisa estar entre 2 e 26.\n");
-        } else {
-            vetor[i-1] = k;
-            i += 1;
-        }
-    }
-
-    // 2. Ordenar os 12 números de forma crescente.
-    int *n_vetor = ordenar(vetor, tamanho_vetor);
-
-    printf("Números Inseridos (em ordem crescente): ");
-    for (i = 0; i <= tamanho_vetor - 1; i++) {
-        printf("%d ", n_vetor[i]);
-    }
-    printf("\n");
-
-    // 3. Soma de todos os valores do vetor.
-    int sum = 0;
-    for (i = 0; i <= tamanho_vetor - 1; i++) {
-        sum += n_vetor[i];
-    }
-    printf("Soma dos números inseridos: %d\n", sum);
-
-    // 4. Coseno dos valores da segunda metade do vetor
-    double *v_coseno;
-    for (i = tamanho_vetor-1; i >= tamanho_vetor/2; i--) {
-        v_coseno[tamanho_vetor-1 - i] = n_vetor[i];
-    }
-
-    double *coseno = cosenos(v_coseno, tamanho_vetor);
-    printf("Coseno dos valores da segunda metade do vetor: ");
-    for (i = 0; i <= tamanho_vetor/2 - 1; i++) {
-        printf("%f ", coseno[i]);
-    }
-    printf("\n");
-
-    return 0;
 }
