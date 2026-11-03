@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
-#include <stdlib.h>
 
 void opção_1 (int original[12]);
 
