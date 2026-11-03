@@ -34,6 +34,8 @@ int main () {
         case 1:
             break;
         case 2:
+            int soma = somar_vetor(vetor);
+            printf("A soma dos elementos do vetor é: %d", soma);
             break;
         case 3:
             break;

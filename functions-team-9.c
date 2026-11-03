@@ -19,6 +19,28 @@ int *ler_vetor (int vetor[12]) {
     return vetor;
 }
 
+// Função
+
+// Função para somar todos os valores do vetor
+
+int somar_vetor (int vetor[12]) {
+    int soma = 0;
+
+    for (int i = 0; i <= 11; i++) {
+        soma += vetor[i];
+    }
+
+    return soma;
+}
+
+// Função
+
+// Função
+
+// Função para identificar o valor mais próximo de 25
+
+// Função para devolver os valores do vetor divisíveis por três
+
 /*int soma (int lista[], int tamanho) {
     int i, soma = 0;
     for (i = 0; i <= tamanho - 1; i += 1) {
