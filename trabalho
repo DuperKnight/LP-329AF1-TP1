@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
+#include <time.h>
 
 void opção_1 (int original[12]);
 
@@ -81,6 +82,17 @@ int main ()
         else if (func == 4)
         {
             //Função 4
+            srand(time(NULL));
+            int randomN;
+            for (i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    randomN = rand() % 12;
+                    printf("%i", Nr[randomN]);
+                }
+                printf("\n");
+            }
 
         }
         else if (func == 5)
