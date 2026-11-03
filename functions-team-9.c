@@ -2,6 +2,32 @@
 #include <math.h>
 #include "functions-team-9.h"
 
+// Função para ler e validar o vetor
+int *ler_vetor (int vetor[12]) {
+    int elemento;
+
+    printf("Digite 12 números inteiros entre 2 e 26\n");
+    for (int i = 0; i <= 11; i++) {
+        printf("Digite o %dº elemento do vetor: ", i + 1);
+        do {
+            scanf("%d", &elemento);
+        } while (elemento < 2 || elemento > 26);
+
+        vetor[i] = elemento;
+    }
+
+    return vetor;
+}
+
+/*int soma (int lista[], int tamanho) {
+    int i, soma = 0;
+    for (i = 0; i <= tamanho - 1; i += 1) {
+        soma += lista[i];
+    }
+
+    return soma;
+}
+
 int *ordenar (int lista[], int tamanho) {
     int i, k;
     for (i = 0; i <= tamanho - 1; i += 1) {
@@ -24,4 +50,4 @@ double *cosenos (double lista[], int tamanho) {
     }
 
     return lista;
-}
+}*/
