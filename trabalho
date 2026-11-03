@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdbool.h> 
+#include <stdbool.h>
+#include <math.h>
 
 void opção_1 (int original[12]);
 
@@ -22,6 +23,7 @@ int main ()
    bool estado = true;
    int func;
    //O programa vai correr enquanto o valor do estado for verdadeiro
+   int MatrizG[12];
    do
    {
     printf("Digita o número da funcionlaidade que desejas utilizar\n\n");
@@ -124,32 +126,36 @@ int main ()
             {
                 for (int j = 2; j <= 5; j++)
                 {
-                    if (Nr[i] != j)
+                    if (Nr[i] == j)
                     {
                         igual = 1;
+                    }
+                    else if (Nr[i] != j)
+                    {
                         if (Nr[i] % j != 0)
                         { 
                           primo = primo + 1;
                         }
                     }
                 }
-            }
-            for (i = 0; i < 12; i++)
-            {
+
                 if (igual == 0)
                 {
-                    if (primo == 5)
+                    if (primo == 4)
                     {
                         printf( "%i", Nr[i]);
                     }
                 }
                 else
                 {
-                    if (primo == 4)
+                    if (primo == 3)
                     {
                         printf("%i", Nr[i]);
                     }
                 }
+                primo = 0;
+                igual = 0;
+
             }
 
         }
@@ -172,7 +178,8 @@ int main ()
                 for (int j = 0; j < 12; j++)
                 {
                     matriz[i][j] = Nr[i] * Novo[j];
-                    printf("%i", matriz[i][j]);
+                    MatrizG[i][j] = matriz[i][j];
+                    printf("%i ", matriz[i][j]);
                 }
                 printf("\n");
             }
@@ -180,6 +187,17 @@ int main ()
         else if (func == 10)
         {
             //Função 10
+            //Transpor a matriz global que provem da função 9
+            int matrizT[i][j];
+            for (i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    MatrizT[i][j]= MatrizG[j][i];
+                    printf("%i ", MatrizT[i][j]);
+                }
+                printf("\n");
+            }
         }
         else if (func == 11)
         {
