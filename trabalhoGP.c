@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include "trabalhoGP.h"
+#include "TrabalhoGP.h"
 
 
 void OP1 (int original[12])
