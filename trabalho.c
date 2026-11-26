@@ -3,13 +3,26 @@
 #include <math.h>
 #include <time.h>
 #include "trabalhoGP.h"
+#include <string.h>
 
-
-int main ()
+int main (int argc,char *argv[])
 { 
+    if (argc == 2)
+    {
+        for (int i = 0; i < argc; i++)
+        {
+            if (strcmp(argv[i], "--help") == 0)
+            {
+                HelpMenu();
+            }
+        }
+        return 1;
+    }
+    if (argc == 1)
+    {
     //Esta variável vai ser utilizada para verificar se o utilizador já utilizou a função 3 avançada
     int foi = 0;
-    //Esta variável só vai ser utilizada mais tarde para impedir o menu de aparecer antes que tenhamos tido tempo para ver o resultado da funçào desejada
+    //Esta variável só vai ser utilizada mais tarde para impedir o menu de aparecer antes que tenhamos tido tempo para ver o resultado da função desejada
     int esperar;
     //variável dos loops
     int i; 
@@ -41,6 +54,7 @@ int main ()
     printf("4. Construção de uma matriz 12 por 12, em que cada linha é composta pelo vetor lido (primeira linha) e por permutações dos seus valores.\n");
     printf("5. Identificação do valor mais próximo de 25.\n");
     printf("6. Devolução dos valores do vetor que são divisíveis por três.\n");
+    printf("7. Menu de ajuda (O que é que não percebeste? genuinamente!)\n");
     printf("10. Avançar para o menu de funções avançadas.\n");
     
         do
@@ -112,7 +126,7 @@ int main ()
    {
 
     printf("\n");
-    printf("0. Voltar para o menu da funções básicas.\n");
+    printf("0. Voltar para o menu das funções básicas.\n");
     printf("1.  Leitura de um novo vetor, e devolução de um vetor que mistura metade do primeiro vetor e metade do segundo.\n");
     printf("2. Identificação de todos os números primos no vetor inicial.\n");
     printf("3. Leitura de um novo vetor 1x12, cálculo e devolução da matriz 12x12 resultante do produto do vetor inicial com o novo vetor gerado.\n");
@@ -121,7 +135,7 @@ int main ()
 
         do
         {
-            printf("Digita o número da funcionlaidade que desejas utilizar: ");
+            printf("Digita o número da funcionalidade que desejas utilizar: ");
             scanf("%i", &func);
             printf("\n");
         }while (func < 0 || func > 4);
@@ -171,5 +185,6 @@ int main ()
             printf("\nPressiona 0 para voltar ao menu: \n");
             scanf("%i", &esperar);
         }while(esperar != 0);
-   }
+    }
+    }
 }
