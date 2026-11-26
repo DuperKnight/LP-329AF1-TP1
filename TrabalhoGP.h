@@ -23,6 +23,7 @@ void OP23 (int original[12]);
 
 void OP24 (int original[12]);
 
+void HelpMenu (void);
 
 
 
