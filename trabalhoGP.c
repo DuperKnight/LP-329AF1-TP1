@@ -1,35 +1,75 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <time.h>
 #include "trabalhoGP.h"
 
 
 void HelpMenu (void)
 {
-    printf("\n==================== MENU DE AJUDA ====================\n");
-    printf("Utilizacao na linha de comandos:\n");
-    printf("  ./trabalho --help       Mostra esta ajuda e termina.\n");
-    printf("  ./trabalho              Inicia o programa (pede 12 numeros entre 2 e 26).\n\n");
+    printf("\n=====================================================================\n");
+    printf("                      MENU DE AJUDA - \"trabalho\"                     \n");
+    printf("=====================================================================\n\n");
 
-    printf("Menu Basico:\n");
-    printf("  0. Sair do programa.\n");
-    printf("  1. Ordena o vetor pelos valores simetricos (-x) por ordem crescente.\n");
-    printf("  2. Calcula a soma de todos os 12 elementos do vetor.\n");
-    printf("  3. Calcula o coseno (em radianos) da segunda metade do vetor (indices 6 a 11).\n");
-    printf("  4. Gera uma matriz 12x12 com o vetor inicial e permutacoes dos seus valores.\n");
-    printf("  5. Encontra o elemento do vetor mais proximo de 25.\n");
-    printf("  6. Mostra os elementos do vetor que sao divisiveis por 3.\n");
-    printf("  7. Abre este menu de ajuda.\n");
-    printf(" 10. Avanca para o menu de funcoes avancadas.\n\n");
+    printf("1. UTILIZAÇÃO NA LINHA DE COMANDOS\n");
+    printf("   ./trabalho --help       Exibe este menu de ajuda detalhado e termina.\n");
+    printf("   ./trabalho              Inicia o programa interativo com os menus.\n\n");
 
-    printf("Menu Avancado:\n");
-    printf("  0. Volta ao menu basico.\n");
-    printf("  1. Le um segundo vetor (2..26) e mistura 1.a metade do 1.o com 2.a metade do 2.o.\n");
-    printf("  2. Identifica os numeros primos presentes no vetor inicial.\n");
-    printf("  3. Le um vetor 1x12 (2..26) e calcula a matriz 12x12 do produto.\n");
-    printf("  4. Calcula a transposta da matriz gerada na opcao 3 (requer executar a 3 primeiro).\n");
-    printf("=========================================================\n");
+    printf("2. ENTRADA DE DADOS INICIAL\n");
+    printf("   - Ao iniciar sem \"--help\", o programa pede 12 números inteiros.\n");
+    printf("   - Cada valor tem de pertencer ao intervalo fechado [2, 26]\n");
+    printf("     (ou seja, de 2 a 26, inclusive). Valores fora desse intervalo\n");
+    printf("     são ignorados/rejeitados até ser inserido um número válido.\n");
+    printf("   - Após cada funcionalidade executada, introduz \"0\" quando pedido\n");
+    printf("     para regressar ao menu correspondente.\n\n");
+
+    printf("3. MENU BÁSICO (estado inicial)\n");
+    printf("   0. Sair do programa\n");
+    printf("      Termina a execução imediatamente.\n\n");
+    printf("   1. Ordenação pelos valores simétricos\n");
+    printf("      Calcula o simétrico (-x) de cada um dos 12 elementos do vetor\n");
+    printf("      inicial e apresenta-os ordenados por ordem crescente.\n\n");
+    printf("   2. Soma dos elementos\n");
+    printf("      Soma todos os 12 números do vetor inicial e mostra o total.\n\n");
+    printf("   3. Cosseno da segunda metade do vetor\n");
+    printf("      Calcula cos(x) para os elementos da segunda metade do vetor\n");
+    printf("      (índices 6 a 11, sendo o argumento tratado em radianos).\n\n");
+    printf("   4. Matriz 12x12 por permutações\n");
+    printf("      Gera linhas baseadas no vetor inicial e em deslocamentos/\n");
+    printf("      permutações circulares dos seus elementos.\n\n");
+    printf("   5. Valor mais próximo de 25\n");
+    printf("      Analisa o vetor e indica o valor mais próximo de 25.\n\n");
+    printf("   6. Múltiplos / divisíveis por 3\n");
+    printf("      Lista os valores do vetor inicial que são divisíveis por 3\n");
+    printf("      (resto da divisão inteira igual a 0), ou indica se não existe nenhum.\n\n");
+    printf("   7. Ajuda no menu\n");
+    printf("      Abre a informação de ajuda dentro do programa.\n\n");
+    printf("  10. Avançar para o menu de funções avançadas\n");
+    printf("      Muda do menu básico para o menu avançado.\n\n");
+
+    printf("4. MENU AVANÇADO\n");
+    printf("   0. Voltar ao menu básico\n");
+    printf("      Regressa ao menu principal de funções básicas.\n\n");
+    printf("   1. Combinação de dois vetores (primeira e segunda metade)\n");
+    printf("      Pede um novo vetor de 12 números (entre 2 e 26) e cria um\n");
+    printf("      vetor resultante com a primeira metade (6 elementos) do vetor\n");
+    printf("      inicial e a segunda metade (6 elementos) do novo vetor.\n\n");
+    printf("   2. Números primos no vetor inicial\n");
+    printf("      Identifica e apresenta os números primos presentes no vetor\n");
+    printf("      inicial (para valores entre 2 e 26).\n\n");
+    printf("   3. Produto vetorial -> matriz 12x12\n");
+    printf("      Lê um novo vetor 1x12 com valores entre 2 e 26 e calcula a\n");
+    printf("      matriz 12x12 resultante do produto entre o vetor inicial e\n");
+    printf("      esse novo vetor, guardando-a para operações seguintes.\n\n");
+    printf("   4. Matriz transposta da opção 3\n");
+    printf("      Calcula e apresenta a transposta da matriz 12x12 gerada na\n");
+    printf("      opção 3 deste menu. IMPORTANTE: exige executar primeiro a\n");
+    printf("      opção 3; caso contrário, o programa avisa e bloqueia o acesso.\n\n");
+
+    printf("5. NOTAS IMPORTANTES\n");
+    printf("   - Na compilação com \"gcc\"/\"cc\", lembra-te de incluir a biblioteca\n");
+    printf("     matemática (\"-lm\") caso uses funções de <math.h> como \"cos\".\n");
+    printf("   - Os vetores esperam exatamente 12 valores inteiros no intervalo [2, 26].\n");
+    printf("=====================================================================\n");
 }
 void OP1 (int original[12])
 {
@@ -145,25 +185,25 @@ void OPH (void)
     printf("\n==================== MENU DE AJUDA ====================\n");
     printf("Utilizacao na linha de comandos:\n");
     printf("  ./trabalho --help       Mostra esta ajuda e termina.\n");
-    printf("  ./trabalho              Inicia o programa (pede 12 numeros entre 2 e 26).\n\n");
+    printf("  ./trabalho              Inicia o programa (pede 12 números entre 2 e 26).\n\n");
 
-    printf("Menu Basico:\n");
+    printf("Menu Básico:\n");
     printf("  0. Sair do programa.\n");
     printf("  1. Ordena o vetor pelos valores simetricos (-x) por ordem crescente.\n");
     printf("  2. Calcula a soma de todos os 12 elementos do vetor.\n");
-    printf("  3. Calcula o coseno (em radianos) da segunda metade do vetor (indices 6 a 11).\n");
+    printf("  3. Calcula o cosseno (em radianos) da segunda metade do vetor (indices 6 a 11).\n");
     printf("  4. Gera uma matriz 12x12 com o vetor inicial e permutacoes dos seus valores.\n");
-    printf("  5. Encontra o elemento do vetor mais proximo de 25.\n");
-    printf("  6. Mostra os elementos do vetor que sao divisiveis por 3.\n");
+    printf("  5. Encontra o elemento do vetor mais próximo de 25.\n");
+    printf("  6. Mostra os elementos do vetor que são divisíveis por 3.\n");
     printf("  7. Abre este menu de ajuda.\n");
-    printf(" 10. Avanca para o menu de funcoes avancadas.\n\n");
+    printf(" 10. Avança para o menu de funcões avançadas.\n\n");
 
-    printf("Menu Avancado:\n");
-    printf("  0. Volta ao menu basico.\n");
-    printf("  1. Le um segundo vetor (2..26) e mistura 1.a metade do 1.o com 2.a metade do 2.o.\n");
-    printf("  2. Identifica os numeros primos presentes no vetor inicial.\n");
+    printf("Menu Avançado:\n");
+    printf("  0. Volta ao menu básico.\n");
+    printf("  1. Lê um segundo vetor (2..26) e mistura 1.a metade do 1.o com 2.a metade do 2.o.\n");
+    printf("  2. Identifica os números primos presentes no vetor inicial.\n");
     printf("  3. Le um vetor 1x12 (2..26) e calcula a matriz 12x12 do produto.\n");
-    printf("  4. Calcula a transposta da matriz gerada na opcao 3 (requer executar a 3 primeiro).\n");
+    printf("  4. Calcula a transposta da matriz gerada na opção 3 (requer executar a 3 primeiro).\n");
     printf("=========================================================\n");
 }
 
@@ -287,4 +327,3 @@ void OP24 (int original[12])
         printf("\n");
     }
 }
-
