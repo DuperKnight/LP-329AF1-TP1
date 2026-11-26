@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include "TrabalhoGP.h"
+#include "trabalhoGP.h"
 
 
 void OP1 (int original[12])
@@ -97,13 +97,19 @@ void OP6 (int original[12])
      //Função 6
      int i;
     printf("Os valores divisíveis por 3 no vetor são: ");
+    int algum = 0;
     for (i = 0; i < 12; i++)
-    {
+    {   
         if (original[i] % 3 == 0)
         {
+            int algum = 1;
             printf ("%i, ", original[i]);
         }
     }
+            if(algum != 1)
+        {
+            printf("Nenhum!");
+        }
 }
 
 void OPH (void)
@@ -140,7 +146,7 @@ void OP21(int original[12])
         printf("Vetor novo combinando a priemira metade do primeiro vetor lido, e a segunda metado do segundo vetor lido: ");
         for (i = 0; i < 12; i++)
         {
-            printf("%i, ", Novo[i]);
+            printf("%i, ", comb[i]);
         }
         printf ("\n");
 }
@@ -152,6 +158,7 @@ void OP22(int original[12])
     int i;
     int primo = 0;
     int igual = 0;
+    printf("Númeors primos que se encontram no vetor: ");
     for (i = 0; i < 12; i++)
     {
         for (int j = 2; j <= 5; j++)
@@ -168,7 +175,6 @@ void OP22(int original[12])
                 }
             }
         }
-        printf("Númeors primos que se encontram no vetor: ");
         if (igual == 0)
         {
             if (primo == 4)
@@ -237,3 +243,4 @@ void OP24 (int original[12])
         printf("\n");
     }
 }
+
